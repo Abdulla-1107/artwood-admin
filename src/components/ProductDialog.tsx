@@ -55,7 +55,6 @@ export const ProductDialog = ({
     description_ru: "",
     price: "",
     size: "",
-    categoryId: "",
     image: "",
   });
 
@@ -70,7 +69,6 @@ export const ProductDialog = ({
         description_ru: product.description_ru,
         price: product.price.toString(),
         size: product.size || "",
-        categoryId: product.categoryId || "",
         image: product.image || "",
       });
     } else {
@@ -83,7 +81,6 @@ export const ProductDialog = ({
         description_ru: "",
         price: "",
         size: "",
-        categoryId: "",
         image: "",
       });
     }
@@ -131,7 +128,6 @@ export const ProductDialog = ({
       description_ru: formData.description_ru || undefined,
       price: price,
       size: formData.size || undefined,
-      categoryId: formData.categoryId || undefined,
       image: formData.image || undefined,
     };
 
@@ -162,35 +158,6 @@ export const ProductDialog = ({
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
-            {/* Kategoriya */}
-            <div className="space-y-2">
-              <Label>Kategoriya</Label>
-              <Select
-                value={formData.categoryId || "none"}
-                onValueChange={(v) =>
-                  setFormData({
-                    ...formData,
-                    categoryId: v === "none" ? "" : v,
-                  })
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Kategoriya tanlang (ixtiyoriy)" />
-                </SelectTrigger>
-
-                <SelectContent>
-                  {data?.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.id}>
-                      {cat.name_uz}
-                    </SelectItem>
-                  ))}
-
-                  {/* ❗️ Endi bu allowed */}
-                  <SelectItem value="none">Tanlanmagan</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
             {/* Narx */}
             <div className="space-y-2">
               <Label>Narx</Label>
