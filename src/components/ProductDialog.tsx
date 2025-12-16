@@ -193,7 +193,7 @@ export const ProductDialog = ({
 
             {/* Narx */}
             <div className="space-y-2">
-              <Label>Narx (so'm) *</Label>
+              <Label>Narx</Label>
               <Input
                 type="number"
                 value={formData.price}
